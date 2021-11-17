@@ -14,7 +14,7 @@ function Modal() {
   const filePickerRef = useRef(null);
   const captionRef = useRef(null);
   const [loading, setLoading] = useState(false);
-  const [selectedFile, setselectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const uploadPost = async () => {
     if(loading) return;
@@ -42,7 +42,7 @@ function Modal() {
 
     setOpen(false);
     setLoading(false);
-    setselectedFile(null);
+    setSelectedFile(null);
   }
 
   const addImageToPost = (e) => {
@@ -52,7 +52,7 @@ function Modal() {
     }
 
     reader.onload = (readerEvent) => {
-      setselectedFile(readerEvent.target.result);
+      setSelectedFile(readerEvent.target.result);
     };
   };
 
@@ -98,7 +98,7 @@ function Modal() {
                   <img 
                     src={selectedFile} 
                     className="w-full object-contain cursor-pointer" 
-                    onClick={()=> setselectedFile(null)}
+                    onClick={()=> setSelectedFile(null)}
                     alt=""
                   />
                 ) : (
