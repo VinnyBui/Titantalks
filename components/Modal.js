@@ -43,7 +43,7 @@ function Modal() {
     setOpen(false);
     setLoading(false);
     setSelectedFile(null);
-  }
+}
 
   const addImageToPost = (e) => {
     const reader = new FileReader();
@@ -112,7 +112,6 @@ function Modal() {
                     />
                   </div>
                 )}
-
 
                 <div>
                   <div className="mt-3 text-center sm:mt-5">
