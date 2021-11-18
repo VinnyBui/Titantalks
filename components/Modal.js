@@ -36,7 +36,7 @@ function Modal() {
       const downloadURL = await getDownloadURL(imageRef);
 
       await updateDoc(doc(db, 'posts', docRef.id), {
-        image: downloadURL
+        image: downloadURL,
       })
     });
 
