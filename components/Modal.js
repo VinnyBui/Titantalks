@@ -25,25 +25,27 @@ function Modal() {
       username: session.user.username,
       caption: captionRef.current.value,
       profileImg: session.user.image,
-      timestamp: serverTimestamp()
-    })
+      timestamp: serverTimestamp(),
+    });
 
     console.log("New doc added with ID", docRef.id);
 
     const imageRef = ref(storage, `posts/${docRef.id}/image`);
 
-    await uploadString(imageRef, selectedFile, "data_url").then(async snapshot => {
-      const downloadURL = await getDownloadURL(imageRef);
+    await uploadString(imageRef, selectedFile, "data_url").then(
+      async (snapshot) => {
+        const downloadURL = await getDownloadURL(imageRef);
 
-      await updateDoc(doc(db, 'posts', docRef.id), {
-        image: downloadURL,
-      })
-    });
+        await updateDoc(doc(db, "posts", docRef.id), {
+          image: downloadURL,
+        });
+      }
+    );
 
     setOpen(false);
     setLoading(false);
     setSelectedFile(null);
-}
+};
 
   const addImageToPost = (e) => {
     const reader = new FileReader();
